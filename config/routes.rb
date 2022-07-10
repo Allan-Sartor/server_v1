@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # User route for sign_up
+  devise_for :users, controllers: { registrations: 'registrations' }
+  
+  namespace :api do
+    namespace :v1 do
+      # Autenticated routes and validated token
+      post :auth, to: 'authentication#login'
+      get  '/auth_token', to: 'authentication#validate_user'
+      
+      # Users routes for Admin
+      get '/usersall', to: 'user#index'
+      get '/usershow/:id', to: 'user#show'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+    end
+  end
 end
