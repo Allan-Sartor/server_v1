@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :transactions
   # User route for sign_up
   devise_for :users, controllers: { registrations: 'registrations' }
   
