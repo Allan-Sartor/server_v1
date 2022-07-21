@@ -1,4 +1,4 @@
-class CategoriesController < ApiController
+class Api::V1::CategoriesController < ApiController
   before_action :authenticate_user!
   before_action :set_category, only: %i[ show update destroy ]
 
