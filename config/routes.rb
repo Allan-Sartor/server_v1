@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :transactions
   # User route for sign_up
   devise_for :users, controllers: { registrations: 'registrations' }
   
@@ -13,6 +12,8 @@ Rails.application.routes.draw do
       get '/usersall', to: 'user#index'
       get '/usershow/:id', to: 'user#show'
 
+      resources :categories
+      resources :transactions
     end
   end
 end

@@ -1,4 +1,5 @@
-class TransactionsController < ApplicationController
+class TransactionsController < ApiController
+  before_action :authenticate_user!
   before_action :set_transaction, only: %i[ show update destroy ]
 
   # GET /transactions
